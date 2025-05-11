@@ -1,39 +1,10 @@
+import 'package:currency_converter/home_page/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main(){
-  runApp(Center(child: Text("hello, world!", textDirection: TextDirection.ltr,)));
-  runApp(Icon(Icons.add, textDirection: TextDirection.ltr,));
-  runApp(const Materia());
-  runApp(const Scafold());
+  runApp(const MyApp());
 }
 
-class Materia extends StatelessWidget {
-  const Materia ({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return (
-      MaterialApp(
-        home:
-         Scaffold(
-          body:
-           Text("hello, world!")),
-      )
-    );
-  }
-}
-class Scafold extends StatelessWidget {
-  const Scafold({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return (
-      Scaffold(
-        body: Text("hello, world!", textDirection: TextDirection.ltr,),
-      )
-    );
-  }
-}
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -41,7 +12,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return (
       MaterialApp(
-        home: Text("hello, world!"),
+        home: Scaffold(
+          backgroundColor: Colors.brown,
+          appBar: AppBar(
+            backgroundColor: const Color.fromARGB(21, 37, 16, 16),
+            title: const Text("Currency Converter"),
+          ),
+          body:HomePage()          ),
       )
     );
   }
