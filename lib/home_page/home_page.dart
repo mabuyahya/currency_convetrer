@@ -8,16 +8,26 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-        Result(),
-          SizedBox(height: 100,),
-        Input(),
-          SizedBox(height: 50,),
-        Convert(),
-        ],)
+    return Center(
+        child: Scaffold(
+          backgroundColor: Colors.brown,
+          appBar: AppBar(
+            backgroundColor: Color.fromARGB(21, 37, 16, 16),
+            title: const Text("Currency Converter", style : TextStyle(color: Color.fromARGB(180, 0, 0, 0), fontSize: 30, fontWeight: FontWeight.w500)),
+            elevation: 0,
+            centerTitle: false,
+          ),
+          body: Column(
+
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Result(),
+              SizedBox(height: 100,),
+              Input(),
+              Convert(),
+            ],
+          ),
+        )
     );
   }
 }

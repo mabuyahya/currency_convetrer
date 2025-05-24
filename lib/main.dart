@@ -12,13 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return (
       MaterialApp(
-        home: Scaffold(
-          backgroundColor: Colors.brown,
-          appBar: AppBar(
-            backgroundColor: const Color.fromARGB(21, 37, 16, 16),
-            title: const Text("Currency Converter"),
-          ),
-          body:HomePage()          ),
+        home: HomePage(),
       )
     );
   }
