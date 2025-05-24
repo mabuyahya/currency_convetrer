@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 class Convert extends StatelessWidget {
-  const Convert({super.key});
+  final VoidCallback convertar;
+  const Convert({super.key, required this.convertar});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       child: Padding(
         padding: const EdgeInsets.fromLTRB(2, 10, 2, 0),
@@ -20,9 +21,7 @@ class Convert extends StatelessWidget {
             fixedSize: const WidgetStatePropertyAll(Size(double.infinity, 70)),
             foregroundColor: const WidgetStatePropertyAll(Color.fromARGB(255, 255, 255, 255)),  
           ),
-          onPressed: () {
-            debugPrint("object");
-          },
+          onPressed: convertar,
           child: Text("Convert",
             style: TextStyle(
               color: const Color.fromARGB(255, 219, 205, 205),

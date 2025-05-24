@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 final Color primaryColor = const Color.fromARGB(255, 112, 84, 76);
 final Color secondaryColor = const Color.fromARGB(255, 37, 16, 16);
 class Input extends StatelessWidget {
-  const Input({super.key});
+  final TextEditingController text;
+  const Input({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -10,6 +11,7 @@ class Input extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(2.0),
         child: TextField(
+          controller: text,
           decoration: InputDecoration(
             filled: true,
             fillColor: const Color.fromARGB(21, 37, 16, 16),

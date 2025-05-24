@@ -3,9 +3,35 @@ import 'package:currency_converter/home_page/result.dart';
 import 'package:currency_converter/home_page/input.dart';
 import 'package:currency_converter/home_page/convert.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  @override
+  State createState() => _HomePage();
+}
+
+
+class _HomePage extends State{
+  double result = 0;
+  final TextEditingController userInput = TextEditingController();
+
+void convertar() {
+  final input = double.tryParse(userInput.text);
+  if (input == null) {
+    setState(() => result = 0);
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text("Please enter a valid number."),
+          backgroundColor: Colors.red,
+          elevation: 9,
+          margin: EdgeInsets.all(30),
+          behavior: SnackBarBehavior.floating,
+          duration: Duration(seconds: 2),
+        )
+    );
+    return;
+  }
+  setState(() => result = double.parse((input * 1.41).toStringAsFixed(2)));
+}
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -18,13 +44,13 @@ class HomePage extends StatelessWidget {
             centerTitle: false,
           ),
           body: Column(
-
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Result(),
+              SizedBox(height: 50,),
+              Result(result: result.toString()),
               SizedBox(height: 100,),
-              Input(),
-              Convert(),
+              Input(text: userInput),
+              Convert(convertar: convertar),
             ],
           ),
         )
